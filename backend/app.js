@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/users", router);
 app.use("/files", express.static("files"));
-app.use("/images", express.static("images")); // ✅ FIX ADDED
+app.use("/images", express.static("images")); 
 
 // ================= MONGODB =================
 mongoose.connect("mongodb+srv://dbUser:OogdhyWLrog4ofqB@cluster0.uuq5ely.mongodb.net/")
@@ -62,9 +62,9 @@ app.post("/login", async (req, res) => {
 require("./models/pdfModel");
 const Pdf = mongoose.model("pdfDetails");
 
-// ================= IMAGE MODEL (❗ FIX ADDED) =================
-require("./models/imageModel"); // ✅ IMPORTANT
-const Image = mongoose.model("Image"); // ✅ IMPORTANT
+// ================= IMAGE MODEL =================
+require("./models/imageModel"); 
+const Image = mongoose.model("Image"); 
 
 // ================= PDF MULTER =================
 const pdfStorage = multer.diskStorage({
