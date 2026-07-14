@@ -17,7 +17,7 @@ function UpdateUser() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // ✅ Fetch user by ID
+  // Fetch user by ID
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -48,12 +48,12 @@ function UpdateUser() {
     fetchUser();
   }, [id]);
 
-  // ✅ Debug state
+  // Debug state
   useEffect(() => {
     console.log("Updated Inputs:", inputs);
   }, [inputs]);
 
-  // ✅ Handle input change
+  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -63,7 +63,7 @@ function UpdateUser() {
     }));
   };
 
-  // ✅ Update user
+  // Update user
   const sendRequest = async () => {
     try {
       await axios.put(`http://localhost:5000/users/${id}`, {
@@ -86,7 +86,7 @@ function UpdateUser() {
     sendRequest();
   };
 
-  // ✅ Loading / Error
+  // Loading / Error
   if (loading) return <h3>Loading user data...</h3>;
   if (error) return <h3 style={{ color: "red" }}>{error}</h3>;
 
