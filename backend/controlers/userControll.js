@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 
-// ✅ GET ALL USERS
+// GET ALL USERS
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -10,7 +10,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-// ✅ ADD USER
+// ADD USER
 const addUsers = async (req, res) => {
   try {
     const user = new User(req.body);
@@ -21,7 +21,7 @@ const addUsers = async (req, res) => {
   }
 };
 
-// ✅ GET USER BY ID ( VERY IMPORTANT FIX)
+// GET USER BY ID ( VERY IMPORTANT FIX)
 const getById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -42,7 +42,7 @@ const updateUser = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
   req.params.id,
   req.body,
-  { returnDocument: "after" } // ✅ new method
+  { returnDocument: "after" } // new method
 );
     return res.status(200).json(updatedUser);
   } catch (err) {
@@ -50,7 +50,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// ✅ DELETE USER
+// DELETE USER
 const deleteUser = async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
